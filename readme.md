@@ -5,6 +5,7 @@ This bot sends requests to multiple roblox endpoints to find out the web sockets
 
 ## Examples
 ![/getservers](https://user-images.githubusercontent.com/79481053/204272878-10001119-a5f9-4ccc-a1ee-b497ca7f58cc.png)
+
 ![/getplayer](https://user-images.githubusercontent.com/79481053/204272946-893e4aad-aa1d-44b9-b7f7-57639d69feba.png)
 
 
