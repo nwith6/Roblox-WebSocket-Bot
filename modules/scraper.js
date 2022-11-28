@@ -15,7 +15,7 @@ class Scraper {
     /**
      * 
      * @param {String} url 
-     * @returns {Promise<any>}
+     * @returns {Promise<any>} Promise<any[]>
      */
     async #get(url) {
         return await request({
