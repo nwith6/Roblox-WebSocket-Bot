@@ -1,4 +1,4 @@
-# Roblox Web Socket Bot
+# Roblox WebSocket Bot
 
 ## What is this bot?
 This bot sends requests to multiple roblox endpoints to find out the web sockets for roblox servers. The bot has 2 commands, `/getservers` and `/getplayer`. The first command takes a game url and outputs upto 25 pieces of server data including the web socket. The second command takes a player username and will attempt to get that specific players server and output the server data, including the web socket.
