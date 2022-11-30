@@ -275,7 +275,7 @@ class Scraper {
 
         if (!gameInstance.jobId || !gameInstance.joinScript || gameInstance.joinScript.MachineAddress.startsWith("10.")) {
             return {
-                error: "Private websocket"
+                error: "Protected websocket"
             }
         }
         return {
