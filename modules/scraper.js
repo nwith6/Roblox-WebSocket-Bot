@@ -273,9 +273,9 @@ class Scraper {
     async fetchServerSocket(gameId) {
         const gameInstance = await this.#gameInstance(gameId)
 
-        if (!gameInstance.jobId || !gameInstance.joinScript) {
+        if (!gameInstance.jobId || !gameInstance.joinScript || gameInstance.joinScript.MachineAddress.startsWith("10.")) {
             return {
-                error: "Failed to fetch server socket"
+                error: "Private websocket"
             }
         }
         return {
