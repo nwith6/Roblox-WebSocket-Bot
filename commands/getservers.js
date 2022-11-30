@@ -39,13 +39,13 @@ module.exports = {
             let server = servers.data[i]
             let socketData = await scraper.fetchServerSocket(server.gameId)
             let serverNumber = `${i + 1}`.padStart(2, "0")
+            let ping = `${server.ping}ms`
             let serverString;
 
             if (socketData.error) {
-                serverString = `; Server ${serverNumber} | (${(server.playing).toString().padStart(2, "0")}/${servers.maxPlayers}) | ${socketData.error} | ${server.ping}ms ;\n`
+                serverString = `; Server ${serverNumber} | (${(server.playing).toString().padStart(2, "0")}/${servers.maxPlayers}) | ${socketData.error.padEnd(20, " ")} | ${ping.padEnd(5, " ")} ;\n`
             } else {
                 let socket = `${socketData.ip}:${socketData.port}`
-                let ping = `${server.ping}ms`
 
                 serverString = `[ Server ${serverNumber} | (${(server.playing).toString().padStart(2, "0")}/${servers.maxPlayers}) | ${socket.padEnd(20, " ")} | ${ping.padEnd(5, " ")} ]\n`
             }
