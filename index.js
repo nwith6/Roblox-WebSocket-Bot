@@ -1,8 +1,8 @@
 const fs = require("fs")
 const { token } = require("./config.json").discord
-const { Client, Collection, Intents } = require("discord.js")
+const { Client, Collection, IntentsBitField } = require("discord.js")
 
-const client = new Client({intents: [new Intents(32767)]})
+const client = new Client({intents: [new IntentsBitField(32767)]})
 client.commands = new Collection()
 
 const commandFiles = fs.readdirSync(`${__dirname}/commands`).filter(file => file.endsWith('.js'))
