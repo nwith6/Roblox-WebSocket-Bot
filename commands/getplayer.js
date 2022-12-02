@@ -19,7 +19,6 @@ module.exports = {
      * @param {discord.Interaction} interaction 
      */
     async execute(interaction) {
-        
         const scraper = new Scraper(undefined)
         const server = await scraper.fetchPlayerServer(interaction.options.getString("username"))
 
