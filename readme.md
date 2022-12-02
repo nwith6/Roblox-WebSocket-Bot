@@ -17,4 +17,7 @@ This bot sends requests to multiple roblox endpoints to find out the web sockets
 4. In your terminal run `npm run deploy` to deploy your commands and begin running the bot.
 5. Now all you have to do from here is run the commands which are slash commands. To do this go to any text channel in your server and type `/getservers url: <game_url>` or `/getplayer username: <username>`.
 
+## Other Versions
+[Python Version](https://github.com/nwith6/Python-Roblox-WebSocket-Bot)
+
 # If you need any help contact me @ nathan#2400

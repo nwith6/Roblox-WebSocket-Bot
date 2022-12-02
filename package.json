@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "node deploy-commands.js && node index.js"
   },
-  "author": "",
+  "author": "Nathan <www.github.com/nwith6>",
   "license": "ISC",
   "dependencies": {
     "@discordjs/builders": "^1.4.0",
