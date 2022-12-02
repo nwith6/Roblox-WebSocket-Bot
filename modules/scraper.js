@@ -15,7 +15,7 @@ class Scraper {
     /**
      * 
      * @param {String} url 
-     * @returns {Promise<any>} Promise<any[]>
+     * @returns {Promise<any>} Promise<Object>
      */
     async #get(url) {
         return await request({
@@ -35,7 +35,7 @@ class Scraper {
     /**
      * @param {String} url 
      * @param {Array} payload
-     * @returns {Promise<Array>} Promise<any[]>
+     * @returns {Promise<Object>} Promise<Object>
      */
     async #post(url, payload=null) {
         return await request({
@@ -60,7 +60,7 @@ class Scraper {
      * 
      * @param {String} url 
      * @param {Array} payload
-     * @returns {Promise<Array>} Promise<any[]>
+     * @returns {Promise<Object>} Promise<Object>
      */
     async #postGameJoin(url, payload) {
         return await request({
@@ -91,7 +91,7 @@ class Scraper {
 
     /**
      * 
-     * @returns {Promise<any>} Promise<any[] or undefined>
+     * @returns {Promise<any>} Promise<Object or undefined>
      */
     async #servers() {
         return await this.#get(`https://games.roblox.com/v1/games/${this.placeId}/servers/Public?sortOrder=Desc&excludeFullGames=true&limit=25`)
@@ -101,7 +101,7 @@ class Scraper {
 
     /**
      * 
-     * @returns {Promise<any>} Promise<any[] or undefined>
+     * @returns {Promise<any>} Promise<Object or undefined>
      */
     async #placeDetails() {
         return await this.#get(`https://games.roblox.com/v1/games/multiget-place-details?placeids=${this.placeId}`)
@@ -112,7 +112,7 @@ class Scraper {
     /**
      * 
      * @param {String} gameId
-     * @returns {Promise<any>} Promise<any[] or undefined>
+     * @returns {Promise<any>} Promise<Object or undefined>
      */
     async #gameInstance(gameId) {
         return await this.#postGameJoin("https://gamejoin.roblox.com/v1/join-game-instance", {
@@ -128,7 +128,7 @@ class Scraper {
     /**
      * 
      * @param {String} username
-     * @returns {Promise<any>} Promise<any[] or undefined>
+     * @returns {Promise<any>} Promise<Object or undefined>
      */
     async #userdata(username) {
         return await this.#post("https://users.roblox.com/v1/usernames/users", {
@@ -141,7 +141,7 @@ class Scraper {
     /**
      * 
      * @param {Number} userid
-     * @returns {Promise<any>} Promise<any[] or undefined>
+     * @returns {Promise<any>} Promise<Object or undefined>
      */
     async #userpresence(userId) {
         return await this.#post("https://presence.roblox.com/v1/presence/users", {
@@ -154,7 +154,7 @@ class Scraper {
     /**
      * 
      * @param {String} universeId
-     * @returns {Promise<any>} Promise<any[] or undefined>
+     * @returns {Promise<any>} Promise<Object or undefined>
      */
     async #universe(universeId) {
         return await this.#get(`https://games.roblox.com/v1/games?universeIds=${universeId}`)
@@ -166,6 +166,7 @@ class Scraper {
      * 
      * @param {String} type "headshot" or "icon"
      * @param {String} arg
+     * @returns {Promise<Object>} Promise<Object or undefined>
      */
     async #robloxImageUrl(type, arg) {
         if (type === "headshot") {
@@ -173,18 +174,17 @@ class Scraper {
             .then(res => { return this.#handleReponse(res, true) })
             .catch(console.error)
 
-        } else if (type === "icon") {
+        } else { // else if (type === "icon") {
             return await this.#get(`https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${arg}&returnPolicy=0&size=50x50&format=Png&isCircular=true`)
             .then(res => { return this.#handleReponse(res, true) })
             .catch(console.error)
-
-        } else return undefined
+        }
     }
 
     /**
      * 
-     * @param {Array} servers 
-     * @returns {Promise<Array>} Promise<any[]>
+     * @param {Object} servers 
+     * @returns {Promise<Object>} Promise<Object>
      */
     async #serversdata(servers) {
         const placeDetails = await this.#placeDetails()
@@ -212,7 +212,7 @@ class Scraper {
 
     /**
      * 
-     * @returns {Promise<Array>} Promise<any[]>
+     * @returns {Promise<Object>} Promise<Object>
      */
     async fetchServers() {
         const servers = await this.#servers()
@@ -228,7 +228,7 @@ class Scraper {
     /**
      * 
      * @param {String} username 
-     * @returns {Promise<Array>} Promise<any[]>
+     * @returns {Promise<Object>} Promise<Object>
      */
     async fetchPlayerServer(username) {
         const userdata = await this.#userdata(username)
@@ -267,8 +267,8 @@ class Scraper {
 
     /**
      * 
-     * @param {Array} server
-     * @returns {Promise<Array>} Promise<any[]>
+     * @param {Object} gameId
+     * @returns {Promise<Object>} Promise<Object>
      */
     async fetchServerSocket(gameId) {
         const gameInstance = await this.#gameInstance(gameId)
