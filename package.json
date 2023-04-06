@@ -10,10 +10,10 @@
   "author": "Nathan <www.github.com/nwith6>",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/builders": "^1.4.0",
-    "@discordjs/rest": "^0.4.0",
-    "discord-api-types": "^0.37.20",
-    "discord.js": "^14.7.1",
+    "@discordjs/builders": "^1.6.1",
+    "@discordjs/rest": "^1.7.0",
+    "discord-api-types": "^0.37.37",
+    "discord.js": "^14.9.0",
     "fs": "^0.0.1-security",
     "request-promise": "^4.2.6"
   }
