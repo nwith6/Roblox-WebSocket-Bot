@@ -283,6 +283,18 @@ class Scraper {
             port: gameInstance.joinScript.ServerPort
         }
     }
+
+    async test() {
+        // https://www.roblox.com/games/7991339063/Rainbow-Friends?privateServerLinkCode=23655607904966159848660793107809
+
+        // await this.#get("https://www.roblox.com/games/7991339063/Rainbow-Friends?privateServerLinkCode=23655607904966159848660793107809")
+        //     .then(res => console.log(res))
+
+        // await this.#post("https://www.roblox.com/games/7991339063/Rainbow-Friends?privateServerLinkCode=23655607904966159848660793107809")
+        //     .then(res => console.log(res))
+
+        await this.#get("")
+    }
 }
 
 module.exports = {
