@@ -272,8 +272,9 @@ class Scraper {
      */
     async fetchServerSocket(gameId) {
         const gameInstance = await this.#gameInstance(gameId)
+        const machineAddress = gameInstance.joinScript.MachineAddress
 
-        if (!gameInstance.jobId || !gameInstance.joinScript || gameInstance.joinScript.MachineAddress.startsWith("10.")) {
+        if (!gameInstance.jobId || !gameInstance.joinScript || machineAddress.startsWith("10.")) {
             return {
                 error: "Protected websocket"
             }
