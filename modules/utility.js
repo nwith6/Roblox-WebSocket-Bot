@@ -1,8 +1,8 @@
-const { MessageEmbed } = require("discord.js")
+const { EmbedBuilder } = require("discord.js")
 
 function SERVER(authorText, authorUrl, authorIconUrl, description) {
-    return new MessageEmbed()
-        .setAuthor(authorText, authorIconUrl, authorUrl)
+    return new EmbedBuilder()
+        .setAuthor({ name: authorText, iconURL: authorIconUrl, url: authorUrl })
         .setDescription(description)
         .setColor(0x006fd5)
 }
