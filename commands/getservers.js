@@ -46,9 +46,9 @@ module.exports = {
                 serverString = `; Server ${serverNumber} | (${(server.playing).toString().padStart(2, "0")}/${(servers.maxPlayers).toString().padStart(2, "0")}) | ${socketData.error.padEnd(20, " ")} | ${ping.padEnd(5, " ")} ;\n`
             } else {
                 let socket = `${socketData.ip}:${socketData.port}`
-
                 serverString = `[ Server ${serverNumber} | (${(server.playing).toString().padStart(2, "0")}/${(servers.maxPlayers).toString().padStart(2, "0")}) | ${socket.padEnd(20, " ")} | ${ping.padEnd(5, " ")} ]\n`
             }
+            
             description += serverString
             embed.setDescription("```ini\n" + description + "```")
 
